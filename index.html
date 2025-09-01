@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoElite - Peças Automotivas de Qualidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(44, 62, 80, 0.98);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-btns {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-btn, .cart-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover, .cart-btn:hover {
+            color: var(--secondary);
+        }
+        
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .feature-card.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .feature-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 5px;
+            background: none;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .product-card.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-btn {
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(to right, white 50%, var(--primary) 50%);
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .about-content {
+            flex: 1;
+            padding-right: 50px;
+            min-width: 300px;
+        }
+        
+        .about-stats {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            min-width: 300px;
+        }
+        
+        .stat {
+            text-align: center;
+            margin: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .testimonial.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .testimonial-text:before {
+            content: "";
+            font-size: 4rem;
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            top: -20px;
+            opacity: 0.3;
+            font-family: sans-serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .author-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col ul a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-social {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about {
+                background: white;
+            }
+            
+            .about-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .about-stats {
+                border-radius: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                transition: 0.5s;
+                padding: 20px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .feature-card, .product-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+            
+            .about-stats {
+                padding: 30px 15px;
+            }
+            
+            .stat {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Auto<span>Elite</span></h1>
+            </div>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#products">Produtos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#testimonials">Avaliações</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-btns">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Peças de qualidade para o seu veículo</h2>
+                <p>Encontre as melhores autopeças com garantia de qualidade e entrega rápida para manter seu carro em perfeito estado.</p>
+                <a href="#products" class="btn btn-large">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Por que escolher a AutoElite?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Entregamos em todo o país com rapidez e segurança.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantia</h3>
+                    <p>Todos os produtos possuem garantia de fábrica.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Qualidade</h3>
+                    <p>Peças de alta qualidade dos melhores fabricantes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte</h3>
+                    <p>Equipe especializada pronta para ajudar você.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            
+            <div class="products-filter">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Motores</button>
+                <button class="filter-btn">Freios</button>
+                <button class="filter-btn">Suspensão</button>
+                <button class="filter-btn">Elétrica</button>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1563720223880-4d93eef1f2c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Kit de Pastilhas de Freio">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Kit de Pastilhas de Freio</h3>
+                        <p class="product-price">R$ 189,90</p>
+                        <a href="#" class="btn product-btn" data-product="Kit de Pastilhas de Freio">Comprar</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1603712610494-7e93e4c13771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Filtro de Ar">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Filtro de Ar</h3>
+                        <p class="product-price">R$ 49,90</p>
+                        <a href="#" class="btn product-btn" data-product="Filtro de Ar">Comprar</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1626266920790-3b3b9806ab6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Amortecedor Dianteiro">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Amortecedor Dianteiro</h3>
+                        <p class="product-price">R$ 279,90</p>
+                        <a href="#" class="btn product-btn" data-product="Amortecedor Dianteiro">Comprar</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1632823469826-03ce44783332?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Bateria 60Ah">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bateria 60Ah</h3>
+                        <p class="product-price">R$ 389,90</p>
+                        <a href="#" class="btn product-btn" data-product="Bateria 60Ah">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2 class="section-title">Sobre a AutoElite</h2>
+                <p>Há mais de 15 anos no mercado, a AutoElite é referência em autopeças de qualidade. Nossa missão é fornecer peças confiáveis com atendimento especializado para garantir a segurança и performance do seu veículo.</p>
+                <p>Contamos com uma equipe de especialistas prontos para ajudar você a encontrar a peça certa para o seu carro, com agilidade e preços justos.</p>
+                <a href="#" class="btn">Saiba Mais</a>
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-text">Anos no mercado</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">5.000+</div>
+                    <div class="stat-text">Clientes satisfeitos</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">20.000+</div>
+                    <div class="stat-text">Peças entregues</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-text">Meses de garantia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">Comprei um kit de amortecedores e fiquei impressionado com a qualidade e o preço justo. A entrega foi super rápida, recebi em menos de 48h.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Carlos Silva">
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Silva</h4>
+                            <span class="author-role">Cliente desde 2019</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Ótimo atendimento! Me orientaram na escolha da peça correta para meu modelo de carro e ainda consegui um desconto. Recomendo!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Ana Santos">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Santos</h4>
+                            <span class="author-role">Cliente desde 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Precisa de ajuda para encontrar a peça certa?</h2>
+            <p>Nossos especialistas estão prontos para ajudar você a encontrar exatamente o que precisa para o seu veículo.</p>
+            <a href="#" class="btn btn-large" id="contact-btn">Fale Conosco</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>AutoElite</h3>
+                    <p>A melhor loja de autopeças do Brasil, com qualidade, preço justo e entrega rápida.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Produtos</h3>
+                    <ul>
+                        <li><a href="#">Sistema de Freio</a></li>
+                        <li><a href="#">Motor</a></li>
+                        <li><a href="#">Suspensão</a></li>
+                        <li><a href="#">Transmissão</a></li>
+                        <li><a href="#">Elétrica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Política de Trocas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo</li>
+                        <li><i class="fas fa-phone"></i> (11) 3000-1000</li>
+                        <li><i class="fas fa-envelope"></i> contato@autoelite.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg a Sex: 8h às 18h | Sáb: 9h às 13h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 AutoElite - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Número de WhatsApp da empresa (substitua pelo número real)
+        const whatsappNumber = "5511999999999";
+        
+        // Função para abrir o WhatsApp com mensagem personalizada
+        function openWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Configurar os botões de compra
+        document.querySelectorAll('.product-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productName = this.getAttribute('data-product');
+                const message = `Olá, vi o produto ${productName} no seu site e tenho interesse!`;
+                openWhatsApp(message);
+            });
+        });
+        
+        // Configurar o botão "Fale Conosco"
+        document.getElementById('contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const message = "Olá, estava navegando no seu site e achei alguns produtos interessantes!";
+            openWhatsApp(message);
+        });
+        
+        // Animação de elementos ao rolar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.feature-card, .product-card, .testimonial');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Garantir que as imagens carreguem corretamente
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    this.parentNode.style.background = '#f0f0f0';
+                    this.parentNode.innerHTML = '<div style="color: #999; text-align: center;">Imagem não disponível</div>';
+                };
+            });
+        });
+    </script>
+</body>
+</html>
